@@ -14,4 +14,7 @@ Pascal Compiler made with Java for CSC 420 - Compiler Construction class
 ## Example Running
 ![](src/imageReadme/example.gif)  
 Here is a link to a video of the same gif of running the compiler:  
-https://drive.google.com/file/d/1kQxm9SCWjfmDxiNEsY5lX6WOxkl8Tga9/view?usp=sharing
+https://drive.google.com/file/d/1kQxm9SCWjfmDxiNEsY5lX6WOxkl8Tga9/view?usp=sharing  
+
+## Additional notes
+The Scanner and Lexer portions are completed. I was not able to finish the Emitter, if I had a little more time I would probably be able to finish that.
