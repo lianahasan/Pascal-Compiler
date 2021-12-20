@@ -1,4 +1,4 @@
-PROGRAM testWriteln;
+PROGRAM addition;
 
 var x , y : integer ;
 
