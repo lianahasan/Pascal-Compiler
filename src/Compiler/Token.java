@@ -1,5 +1,6 @@
 package Compiler;
 
+//For ArrayList of Tokens this is the Token class
 public final class Token {
 
     private String tokenType; //"TK_SEMICOLON"

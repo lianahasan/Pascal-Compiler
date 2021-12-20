@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+// This is where the main program is run
+// Change the Pascal file on line 14 to test different Pascal files
+// So far mostly only writeln files are running perfectly, since I still need to fix the Emitter
 public final class Compiler {
 
     public static void main(String args[]) throws IOException {

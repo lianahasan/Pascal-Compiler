@@ -11,6 +11,7 @@ public final class Emitter {
     private static Stack<Object> stack = new Stack<>();
     private static int ip = 0;
 
+    // This part is the constructor for the Emitter
     public Emitter(ArrayList<LinkedHashMap<String, Object>> Instructions, ArrayList<Symbol> SymbolTable,
                    Stack<Object> stack, int ip) {
         Emitter.Instructions = Instructions;
@@ -19,6 +20,7 @@ public final class Emitter {
         Emitter.ip = ip;
     }
 
+    // This is the emit() where all the operations are made
     public static void emit() {
         while(true) {
             if (Instructions.get(ip).get("INSTRUCTION").equals("op_push")) {
@@ -76,6 +78,7 @@ public final class Emitter {
         }
     }
 
+    //pushi, push, pop functions
     public static void pushi(Object val) {
         for (int i = 0; i < SymbolTable.size(); i++) {
             if(SymbolTable.get(i).getSymbolName().equals(val)) {
@@ -100,7 +103,7 @@ public final class Emitter {
         return;
     }
 
-    //With more time I can fix the errors in all of these operations
+    //With more time I can fix the errors in all of these operations shown below
     public static void add() {
 //        System.out.println(stack);
 //        System.out.println(stack.empty());

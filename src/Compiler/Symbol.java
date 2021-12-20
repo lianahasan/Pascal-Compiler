@@ -1,6 +1,6 @@
 package Compiler;
 
-// For SymbolTable
+// For SymbolTable this is the Symbol class
 public final class Symbol {
 
     private String symbolName;

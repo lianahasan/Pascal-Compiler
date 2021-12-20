@@ -18,6 +18,7 @@ public final class Lexer {
 
     private static ArrayList<Token> Tokens = new ArrayList<>();
 
+    // This part is the constructor for the Lexer/scanner
     public Lexer(String currentTokenType, String currentTokenValue,int currentColumn, int currentRow,
                  boolean isString, boolean isComment, boolean isInteger, boolean isReal,
                  ArrayList<Token> Tokens) {
@@ -34,6 +35,7 @@ public final class Lexer {
 
     }
 
+    // Here I defined Keyword Tokens from Pascal into a HashMap
     private static final HashMap<String, String> KeywordTokens = new HashMap<>();
     static {
         KeywordTokens.put("ASM", "TK_ASM");
@@ -81,6 +83,7 @@ public final class Lexer {
         KeywordTokens.put("BOOLEAN", "TK_BOOLEAN_ID");
     }
 
+    // Operator Tokens from Pascal into a HashMap
     private static final HashMap<String, String> OperatorTokens = new HashMap<>();
     static {
         OperatorTokens.put(";", "TK_SEMICOLON");
@@ -116,6 +119,8 @@ public final class Lexer {
         OperatorTokens.put("NOT", "TK_NOT");
     }
 
+    // To understand what character the Lexer is scanning I created an enum and a Hashmap
+    // to keep track of which character it is using Ascii values
     enum CharacterType {
         SPACE, DIGIT, SEMICOLON, COLON, DOT, LETTER,
         COMMA, EXCLAMATION, QUOTE, PLUS, MINUS, CR, //quote -> string, digit -> isdig numbers
@@ -190,6 +195,8 @@ public final class Lexer {
 //        System.out.println(Types.get(String.valueOf(character)));
 //    }
 
+    // This scans the file and goes through each character to find comments,
+    // strings, digits, etc
     public static ArrayList<Token> scan(File file) throws IOException {
         BufferedReader b = new BufferedReader(new FileReader(file));
         int c = 0;
@@ -236,6 +243,7 @@ public final class Lexer {
         return Tokens;
     }
 
+    // This handles all the generic characters while scanning in scan()
     public static void handleGenericCharacter(char character) {
 //        if ((Types.get(String.valueOf(character))) == CharacterType.SPACE) { //turn this into function later
         if((int)(character) <= 32) {
@@ -444,6 +452,7 @@ public final class Lexer {
         }
     }
 
+    // This handles digits in scan()
     public static void handleDigits(char character) {
         if(Types.get(String.valueOf(character)) == CharacterType.DIGIT) {
             currentTokenValue += character;

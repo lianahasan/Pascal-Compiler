@@ -18,6 +18,7 @@ public final class Parser {
     private static boolean currentOperation;
     private static String lhs;
 
+    // This part is the constructor for the Parser
     public Parser(ArrayList<Token> tokens, Iterator<Token> it, ArrayList<LinkedHashMap<String, Object>> Instructions,
                   ArrayList<Symbol> SymbolTable, int ip, int address, boolean currentOperation, String lhs) {
         Parser.currentToken = currentToken;
@@ -31,6 +32,7 @@ public final class Parser {
         Parser.lhs = lhs;
     }
 
+    // This begins the parsing and returns instructions
     public static ArrayList<LinkedHashMap<String, Object>> parse() { // Return instructions and symbol table
         getToken();
         program();
@@ -130,6 +132,7 @@ public final class Parser {
         varDeclaration();
     }
 
+    //These go through all the statements if, for, while, etc
     public static void statements() {
         while(true) {
             if (currentToken.getTokenType().equals("TK_IF")) {
@@ -262,6 +265,7 @@ public final class Parser {
         ip++;
     }
 
+    // This handles conditions <,>,etc
     public static void condition() {
         if (currentToken.getTokenType().equals("TK_LESS_THAN")) {
             build(currentToken);
@@ -292,6 +296,7 @@ public final class Parser {
         }
     }
 
+    // This handles expressions
     public static void expression() {
         term();
         buildExpression();
@@ -408,6 +413,7 @@ public final class Parser {
         }
     }
 
+    // This is where the instructions are built
     public static void build(Token token) {
         if(token.getTokenType().equals("TK_OTHER")) {
             Instructions.add(getInstructions("op_push", ip, token.getTokenValue(), token.getTokenType()));
@@ -468,7 +474,7 @@ public final class Parser {
         }
     }
 
-
+    // This is the match() function
     public static void match(String tokenType) {
         if (tokenType.equals(currentToken.getTokenType())) {
             getToken();
@@ -486,6 +492,7 @@ public final class Parser {
         it = tokens.iterator();
     }
 
+    // This goes to the next token using the iterator
     public static void getToken() {
         if(it.hasNext()) {
             currentToken = it.next();
