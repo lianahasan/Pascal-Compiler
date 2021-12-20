@@ -1,4 +1,4 @@
-PROGRAM testWriteln;
+PROGRAM moreTestWriteln;
 
 BEGIN
     WRITELN ( 'Here are some dolphin facts :' )
