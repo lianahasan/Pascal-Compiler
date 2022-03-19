@@ -17,4 +17,4 @@ Here is a link to a video of the same gif of running the compiler:
 https://drive.google.com/file/d/1kQxm9SCWjfmDxiNEsY5lX6WOxkl8Tga9/view?usp=sharing  
 
 ## Additional notes
-The Scanner and Lexer portions are completed. I was not able to finish the Emitter, if I had a little more time I would probably be able to finish that.
+The Lexer and Parser portions are completed. I was not able to finish the Emitter, if I had a little more time I would probably be able to finish that.
